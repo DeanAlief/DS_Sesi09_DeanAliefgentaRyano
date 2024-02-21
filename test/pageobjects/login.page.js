@@ -28,20 +28,19 @@ class LoginPage extends Page {
     // }
 
     async login () {
-        console.log(`USERNAME : ${process.env.USERNAME_STANDARD_USER}`)
-        console.log(`PASSWORD : ${process.env.PASSWORD_SAUCEDEMO}`)
+        await this.fieldUsername.waitForDisplayed({timeout: 2500})
         await this.fieldUsername.setValue(process.env.USERNAME_STANDARD_USER);
         await this.fieldPassword.setValue(process.env.PASSWORD_SAUCEDEMO);
         await this.btnLogin.click();
     }
 
     async login2 () {
-        console.log(`USERNAME : ${process.env.USERNAME_LOCKED_OUT_USER}`)
-        console.log(`PASSWORD : ${process.env.PASSWORD_SAUCEDEMO}`)
+        await this.fieldUsername.waitForDisplayed({timeout: 2500})
         await this.fieldUsername.setValue(process.env.USERNAME_LOCKED_OUT_USER);
         await this.fieldPassword.setValue(process.env.PASSWORD_SAUCEDEMO);
         await this.btnLogin.click();
     }
+
 
     async validateLockedOutUserError (){
         expect(this.errorLockedOutUser).toBeDisplayed()
