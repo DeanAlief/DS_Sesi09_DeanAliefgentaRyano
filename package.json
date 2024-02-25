@@ -1,6 +1,5 @@
 {
-  "name": "DS_Sesi09_DeanAliefgentaRyano",
-  "type": "module",
+  "name": "ds_sesi09_deanaliefgentaryano",
   "devDependencies": {
     "@wdio/cli": "^8.32.3",
     "@wdio/local-runner": "^8.32.3",

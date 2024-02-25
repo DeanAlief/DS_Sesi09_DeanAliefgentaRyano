@@ -1,5 +1,5 @@
-import { $ , expect } from '@wdio/globals'
-import Page from './page.js';
+const { $ , expect } = require ('@wdio/globals')
+const Page = require ('./page.js');
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -27,20 +27,12 @@ class LoginPage extends Page {
     //     await this.btnLogin.click();
     // }
 
-    async login () {
+    async login (username) {
         await this.fieldUsername.waitForDisplayed({timeout: 2500})
-        await this.fieldUsername.setValue(process.env.USERNAME_STANDARD_USER);
+        await this.fieldUsername.setValue(username);
         await this.fieldPassword.setValue(process.env.PASSWORD_SAUCEDEMO);
         await this.btnLogin.click();
     }
-
-    async login2 () {
-        await this.fieldUsername.waitForDisplayed({timeout: 2500})
-        await this.fieldUsername.setValue(process.env.USERNAME_LOCKED_OUT_USER);
-        await this.fieldPassword.setValue(process.env.PASSWORD_SAUCEDEMO);
-        await this.btnLogin.click();
-    }
-
 
     async validateLockedOutUserError (){
         expect(this.errorLockedOutUser).toBeDisplayed()
@@ -54,4 +46,4 @@ class LoginPage extends Page {
     }
 }
 
-export default new LoginPage();
+module.exports = new LoginPage();

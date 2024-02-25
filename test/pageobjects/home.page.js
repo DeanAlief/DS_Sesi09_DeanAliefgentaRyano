@@ -1,5 +1,5 @@
-import { $ , expect } from '@wdio/globals'
-import Page from './page.js';
+const { $ , expect } = require ('@wdio/globals')
+const Page = require ('./page.js');
 
 /**
  * sub page containing specific selectors and methods for a specific page
@@ -19,4 +19,4 @@ class HomePage extends Page {
     }
 }
 
-export default new HomePage();
+module.exports = new HomePage();
