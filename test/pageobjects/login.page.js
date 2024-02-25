@@ -17,6 +17,7 @@ class LoginPage extends Page {
     get errorLockedOutUser () {return $('//*[text()="Epic sadface: Sorry, this user has been locked out."]');}
 
 
+
     /**
      * a method to encapsule automation code to interact with the page
      * e.g. to login using username and password
@@ -37,6 +38,8 @@ class LoginPage extends Page {
     async validateLockedOutUserError (){
         expect(this.errorLockedOutUser).toBeDisplayed()
     }
+
+
 
     /**
      * overwrite specific options to adapt it to page object
