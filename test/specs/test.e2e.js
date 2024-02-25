@@ -18,17 +18,15 @@ describe ("I. Swag Labs login Testing", () => {
         await loginPage.validateLockedOutUserError()
     })
 }),
-describe ("II. Swag Labs Item Checkout Testing", () => {
 
+describe ("II. Swag Labs Item Checkout Testing", () => {
     it('01. should open item details and back to home page', async () =>{
         await loginPage.open()
         await loginPage.login(process.env.USERNAME_STANDARD_USER)
         await homePage.validateHomePage()
         await itemPage.validateItem()
         await homePage.validateHomePage()
-
     })
-
 
     it('02. should add item "Sauce Labs Backpack" and then enter customer data for checkout finalization', async () =>{
         await loginPage.open()
@@ -37,7 +35,6 @@ describe ("II. Swag Labs Item Checkout Testing", () => {
         await additemPage.addItem()
         await additemPage.enterinfo(process.env.FIRST_NAME, process.env.LAST_NAME, process.env.POSTAL_CODE)
         await additemPage.finishcheckout()
-
     })
 
     it('03. should get error message because first name is missing', async () =>{
@@ -47,8 +44,6 @@ describe ("II. Swag Labs Item Checkout Testing", () => {
         await additemPage.addItem()
         await additemPage.enterinfo(process.env.EMPTY, process.env.LAST_NAME, process.env.POSTAL_CODE)
         await additemPage.emptyfieldError()
-
     })
-
 })
 
